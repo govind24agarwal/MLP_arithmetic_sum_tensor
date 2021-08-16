@@ -46,3 +46,15 @@ if __name__ == "__main__":
 
     # train model
     model.fit(x_train, y_train, epochs=100)
+
+    # evaluate model on test set
+    print("\nEvaluation on the test set:")
+    model.evaluate(x_test, y_test, verbose=1)
+
+    # get predictions
+    data = np.array([[0.3, 0.2], [0.23, 0.1]])
+    predictions = model.predict(data)
+
+    print("\nPredictions:")
+    for d, p in zip(data, predictions):
+        print("{} + {} = {}".format(d[0], d[1], p[0]))
